@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Demand Spring — Footer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="colors_and_type.css">
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#262626"/><g transform="translate(15,30)"><rect x="0" y="0" width="70" height="3" fill="#65bc4b"/><rect x="0" y="10" width="14" height="3" fill="#fff"/><rect x="18" y="10" width="14" height="3" fill="#fff"/><rect x="36" y="10" width="14" height="3" fill="#fff"/><rect x="54" y="10" width="14" height="3" fill="#fff"/><rect x="0" y="18" width="10" height="2" fill="#aaa"/><rect x="0" y="24" width="12" height="2" fill="#aaa"/><rect x="0" y="30" width="9" height="2" fill="#aaa"/><rect x="18" y="18" width="11" height="2" fill="#aaa"/><rect x="18" y="24" width="13" height="2" fill="#aaa"/><rect x="36" y="18" width="10" height="2" fill="#aaa"/><rect x="54" y="18" width="11" height="2" fill="#aaa"/><rect x="0" y="40" width="70" height="1" fill="#65bc4b"/></g></svg>
+</template>
+<style>
+  body { margin: 0; background: #ffffff; }
+
+  /* Page chrome — just enough page above so the footer feels in-context */
+  .page-context {
+    background: #ffffff;
+    padding: 80px 24px 0;
+    text-align: center;
+    color: var(--ds-muted);
+  }
+  .page-context .marker {
+    max-width: 1280px;
+    margin: 0 auto;
+    border-top: 1px dashed var(--ds-rule);
+    padding: 24px 0 0;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ds-muted-2);
+  }
+  .page-context .marker span { color: var(--ds-green-deep); }
+
+  /* ===========================================================
+     TRUST BAR — "fact tape", visually distinct from link columns
+     =========================================================== */
+  .trust-bar {
+    background: var(--ds-ink);
+    color: rgba(255,255,255,0.92);
+    border-top: 1px solid var(--ds-green);
+    border-bottom: 1px solid var(--ds-green);
+  }
+  .trust-bar__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .trust-bar__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+  .trust-bar__item .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--ds-green);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .trust-bar__sep {
+    color: rgba(255,255,255,0.3);
+    user-select: none;
+  }
+
+  /* ===========================================================
+     FOOTER MAIN
+     =========================================================== */
+  footer.ds-footer {
+    background: var(--ds-bg-soft);
+    color: var(--ds-ink);
+    padding: 64px 24px 0;
+  }
+  .ds-footer__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Brand strip — logo + offices + contact — sits BELOW the columns */
+  .brand-strip {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 64px;
+    padding: 48px 0 40px;
+    border-top: 1px solid var(--ds-rule);
+    align-items: start;
+  }
+  .brand-strip__logo img {
+    width: 220px;
+    height: auto;
+    display: block;
+  }
+  .brand-strip__tag {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--fg-2);
+    max-width: 460px;
+  }
+  .brand-strip__heading {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ds-muted);
+    margin-bottom: 14px;
+  }
+  .offices {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--ds-ink);
+  }
+  .offices .office {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 12px;
+    align-items: baseline;
+  }
+  .offices .office b {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ds-ink);
+  }
+  .offices .office span {
+    color: var(--fg-2);
+    font-weight: 300;
+  }
+  .contact-block {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--fg-2);
+  }
+  .contact-block a {
+    color: var(--ds-ink);
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+  }
+  .contact-block a:hover {
+    color: var(--ds-green-deep);
+    border-bottom-color: var(--ds-green-deep);
+  }
+
+  /* ===========================================================
+     LINK COLUMNS — 5 cols
+     =========================================================== */
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    padding: 0 0 64px;
+  }
+  .col h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ds-muted);
+    margin: 0 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--ds-rule);
+    position: relative;
+  }
+  .col h4::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -1px;
+    width: 24px; height: 1px;
+    background: var(--ds-green);
+  }
+  .col ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .col li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ds-ink);
+    line-height: 1.4;
+    transition: color 150ms var(--ease-out);
+  }
+  .col li a:hover {
+    color: var(--ds-green-deep);
+  }
+  .col li a .ext {
+    font-size: 10px;
+    color: var(--ds-muted-2);
+    transform: translateY(-2px);
+  }
+  .col li.is-hub a {
+    font-weight: 700;
+    color: var(--ds-ink);
+  }
+  .col li.is-hub a::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--ds-green);
+    margin-right: 6px;
+    display: inline-block;
+  }
+
+  /* Connect column — has the CTA + signup + socials, slightly different */
+  .col--connect .cta-talk {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ds-ink);
+    color: var(--ds-white);
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 18px;
+    transition: background 200ms var(--ease-out);
+  }
+  .col--connect .cta-talk:hover { background: var(--ds-green-deep); color: var(--ds-white); }
+  .col--connect .cta-talk::after {
+    content: "→";
+    margin-left: 8px;
+    font-weight: 400;
+  }
+
+  .signup {
+    margin-bottom: 22px;
+  }
+  .signup label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ds-ink);
+    margin-bottom: 8px;
+  }
+  .signup .signup-row {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--ds-rule);
+    background: var(--ds-white);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 150ms var(--ease-out);
+  }
+  .signup .signup-row:focus-within {
+    border-color: var(--ds-green);
+  }
+  .signup input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--ds-ink);
+    min-width: 0;
+  }
+  .signup input::placeholder { color: var(--ds-muted-2); }
+  .signup button {
+    background: var(--ds-green);
+    color: var(--ds-white);
+    border: none;
+    padding: 0 14px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 150ms var(--ease-out);
+  }
+  .signup button:hover { background: var(--ds-green-deep); }
+  .signup .helper {
+    font-size: 11px;
+    color: var(--ds-muted);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .socials a {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--ds-rule);
+    background: var(--ds-white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ds-ink);
+    transition: all 150ms var(--ease-out);
+  }
+  .socials a:hover {
+    background: var(--ds-ink);
+    color: var(--ds-white);
+    border-color: var(--ds-ink);
+  }
+  .socials svg { width: 15px; height: 15px; }
+
+  .col--connect .extra-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ds-ink);
+    padding: 10px 14px;
+    margin-top: 4px;
+    background: var(--ds-white);
+    border: 1px solid var(--ds-ink);
+    transition: all 150ms var(--ease-out);
+  }
+  .col--connect .extra-link:hover {
+    background: var(--ds-ink);
+    color: var(--ds-white);
+  }
+  .col--connect .extra-link::after {
+    content: "→";
+    transition: transform 150ms var(--ease-out);
+  }
+  .col--connect .extra-link:hover::after {
+    transform: translateX(3px);
+  }
+
+  /* ===========================================================
+     UTILITY ROW (legal)
+     =========================================================== */
+  .utility {
+    border-top: 1px solid var(--ds-green);
+    padding: 20px 0 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .utility .copy {
+    font-size: 13px;
+    color: var(--fg-2);
+  }
+  .utility .copy strong { color: var(--ds-ink); font-weight: 700; }
+  .utility nav {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .utility nav a {
+    font-size: 13px;
+    color: var(--fg-2);
+    border-bottom: 1px solid transparent;
+    transition: color 150ms, border-color 150ms;
+  }
+  .utility nav a:hover {
+    color: var(--ds-green-deep);
+    border-bottom-color: var(--ds-green-deep);
+  }
+
+  /* ===========================================================
+     SCHEMA REVEAL — visible on this mockup as a documented
+     artifact; in production the <script type="application/ld+json">
+     is rendered invisibly. Designers/devs can confirm what's there.
+     =========================================================== */
+  .schema-reveal {
+    background: var(--ds-ink);
+    color: rgba(255,255,255,0.85);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .schema-reveal__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+    align-items: center;
+    font-family: var(--font-mono);
+  }
+  .schema-reveal__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ds-green);
+  }
+  .schema-reveal__tag .pulse {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--ds-green);
+    box-shadow: 0 0 0 0 rgba(101,188,75,0.6);
+    animation: pulse 2.4s var(--ease-out) infinite;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(101,188,75,0.6); }
+    70%  { box-shadow: 0 0 0 8px rgba(101,188,75,0); }
+    100% { box-shadow: 0 0 0 0 rgba(101,188,75,0); }
+  }
+  .schema-reveal__msg {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+  }
+  .schema-reveal__msg b { color: rgba(255,255,255,0.9); font-weight: 500; }
+  .schema-reveal__toggle {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.85);
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 150ms;
+  }
+  .schema-reveal__toggle:hover {
+    border-color: var(--ds-green);
+    color: var(--ds-green);
+  }
+  .schema-reveal__code {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px 28px;
+    display: none;
+  }
+  .schema-reveal[data-open="true"] .schema-reveal__code { display: block; }
+  .schema-reveal[data-open="true"] .schema-reveal__toggle { color: var(--ds-green); border-color: var(--ds-green); }
+  .schema-reveal__code pre {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-left: 2px solid var(--ds-green);
+    color: rgba(255,255,255,0.85);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.6;
+    padding: 18px 22px;
+    margin: 0;
+    overflow-x: auto;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+  .schema-reveal__code .key { color: #9ed68a; }
+  .schema-reveal__code .str { color: rgba(255,255,255,0.9); }
+  .schema-reveal__code .num { color: #d2eecb; }
+
+  /* ===========================================================
+     RESPONSIVE — the columns collapse to accordion on narrow
+     =========================================================== */
+  @media (max-width: 1024px) {
+    .brand-strip { grid-template-columns: 1fr 1fr; }
+    .columns { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  }
+  @media (max-width: 640px) {
+    .brand-strip { grid-template-columns: 1fr; gap: 32px; padding: 32px 0; }
+    .columns { grid-template-columns: 1fr; gap: 0; padding: 0; }
+    .col {
+      border-bottom: 1px solid var(--ds-rule);
+    }
+    .col h4 {
+      cursor: pointer;
+      margin: 0;
+      padding: 18px 0;
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .col h4::after { display: none; }
+    .col h4::before {
+      content: "+";
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--ds-green);
+      order: 2;
+    }
+    .col ul {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 240ms var(--ease-out), padding 240ms var(--ease-out);
+      padding: 0;
+    }
+    .col[data-open="true"] ul { max-height: 800px; padding: 0 0 18px; }
+    .col[data-open="true"] h4::before { content: "−"; }
+    .utility { flex-direction: column; align-items: flex-start; }
+    .schema-reveal__inner { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Faint context marker so the footer doesn't float in space -->
+  <div class="page-context" data-screen-label="Page Context">
+    <div class="marker">— end of page content —<br><span style="font-size:11px;letter-spacing:0.12em;">Footer mockup • Demand Spring v3 IA</span></div>
+  </div>
+
+  <!-- ==========================================================
+       1. TRUST BAR — "fact tape"
+       ========================================================== -->
+  <section class="trust-bar" data-screen-label="01 Trust Bar" aria-label="Credentials">
+    <div class="trust-bar__inner">
+      <span class="trust-bar__item"><span class="dot"></span>Adobe Marketo Preferred Partner</span>
+      <span class="trust-bar__sep">•</span>
+      <span class="trust-bar__item">Forbes Business Council</span>
+      <span class="trust-bar__sep">•</span>
+      <span class="trust-bar__item">Serving 500+ B2B Marketing Leaders</span>
+      <span class="trust-bar__sep">•</span>
+      <span class="trust-bar__item">Since 2012</span>
+      <span class="trust-bar__sep">•</span>
+      <span class="trust-bar__item">NPS&nbsp;98</span>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       2. FOOTER MAIN
+       ========================================================== -->
+  <footer class="ds-footer" data-screen-label="02 Footer" role="contentinfo">
+    <div class="ds-footer__inner">
+
+      <!-- Link columns -->
+      <div class="columns">
+
+        <!-- Column 1: Company -->
+        <div class="col" data-open="false">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Approach (SCALE)</a></li>
+            <li><a href="#">Board of Advisors</a></li>
+            <li><a href="#">Partners</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Solutions -->
+        <div class="col" data-open="false">
+          <h4>Solutions</h4>
+          <ul>
+            <li class="is-hub"><a href="#">Solutions</a></li>
+            <li><a href="#">Revenue Engine Transformation</a></li>
+            <li><a href="#">AI-Driven Revenue</a></li>
+            <li><a href="#">Go-to-Market Transformation</a></li>
+            <li><a href="#">Efficiency &amp; Cost Reduction</a></li>
+            <li><a href="#">MarTech Stack Optimization</a></li>
+            <li><a href="#">Data Transformation</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="col" data-open="false">
+          <h4>Services</h4>
+          <ul>
+            <li class="is-hub"><a href="#">Services</a></li>
+            <li><a href="#">Marketo Consulting</a></li>
+            <li><a href="#">HubSpot Consulting</a></li>
+            <li><a href="#">Eloqua Consulting</a></li>
+            <li><a href="#">Salesforce Marketing Cloud</a></li>
+            <li><a href="#">Platform Migrations</a></li>
+            <li><a href="#">ABM Strategy &amp; Execution</a></li>
+            <li><a href="#">AI Strategy</a></li>
+            <li><a href="#">AI Search Visibility</a></li>
+            <li><a href="#">Buyer Journey Mapping</a></li>
+            <li><a href="#">12-Week AI Training Program</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Insights & Events -->
+        <div class="col" data-open="false">
+          <h4>Insights &amp; Events</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Research &amp; Reports</a></li>
+            <li><a href="#">Podcasts</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">AI Exchange</a></li>
+            <li><a href="#">CMO Exchange</a></li>
+            <li><a href="#">MOps Exchange</a></li>
+            <li><a href="#">Demand Spring in the News</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Connect -->
+        <div class="col col--connect" data-open="false">
+          <h4>Connect</h4>
+
+          <a href="#" class="cta-talk">Let's Talk</a>
+
+          <form class="signup" onsubmit="event.preventDefault();">
+            <label for="footer-email">Subscribe to insights</label>
+            <div class="signup-row">
+              <input id="footer-email" type="email" placeholder="you@company.com" autocomplete="email" />
+              <button type="submit">Join</button>
+            </div>
+            <div class="helper">Monthly. Strategy briefings, research, no fluff.</div>
+          </form>
+
+          <div class="socials" aria-label="Social channels">
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+            </a>
+            <a href="#" aria-label="Mark Emond on LinkedIn" title="Mark Emond on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>
+            </a>
+            <a href="#" aria-label="Spotify">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm4.59 14.43a.62.62 0 01-.86.21c-2.36-1.44-5.32-1.77-8.82-1a.63.63 0 01-.27-1.22c3.82-.85 7.1-.47 9.74 1.15a.62.62 0 01.21.86zm1.22-2.72a.78.78 0 01-1.07.26c-2.7-1.66-6.83-2.14-10-1.18a.78.78 0 11-.46-1.5c3.66-1.11 8.21-.57 11.31 1.34a.78.78 0 01.26 1.08zm.1-2.84c-3.24-1.93-8.59-2.1-11.69-1.16a.94.94 0 01-.55-1.8c3.55-1.07 9.46-.86 13.19 1.36a.94.94 0 01-.95 1.62z"/></svg>
+            </a>
+            <a href="#" aria-label="Apple Podcasts">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.4 19.4v-3.6a6.4 6.4 0 113.4 0V22a10 10 0 00-.5-20zm0 5.6A4.4 4.4 0 0011 16.2v-2.4a2 2 0 112 0v2.4a4.4 4.4 0 00-1-8.6z"/></svg>
+            </a>
+            <a href="#" aria-label="RSS feed">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 17.82a2.18 2.18 0 11-2.18-2.18 2.18 2.18 0 012.18 2.18zM4 4.44v3.04A12.52 12.52 0 0116.52 20h3.04A15.56 15.56 0 004 4.44zM4 10.1v3.06a6.86 6.86 0 016.84 6.84h3.06A9.92 9.92 0 004 10.1z"/></svg>
+            </a>
+          </div>
+
+          <a href="#" class="extra-link">Case Studies</a>
+        </div>
+      </div>
+
+      <!-- Brand strip — logo, offices, contact — anchors below the navigation -->
+      <div class="brand-strip">
+        <div>
+          <div class="brand-strip__logo">
+            <img src="assets/demand-spring-logo.svg" alt="Demand Spring" />
+          </div>
+          <p class="brand-strip__tag">
+            A B2B marketing consultancy pioneering AI-driven growth, revenue acceleration, and marketing automation for visionary leaders. Real people helping other people succeed since 2012.
+          </p>
+        </div>
+
+        <div>
+          <div class="brand-strip__heading">Where we work</div>
+          <div class="offices">
+            <div class="office"><b>Ottawa</b><span>Ontario, CA</span></div>
+            <div class="office"><b>Toronto</b><span>Ontario, CA</span></div>
+            <div class="office"><b>Boston</b><span>Massachusetts, US</span></div>
+            <div class="office"><b>Vancouver</b><span>British Columbia, CA</span></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="brand-strip__heading">Get in touch</div>
+          <div class="contact-block">
+            <a href="mailto:info@demandspring.com">info@demandspring.com</a><br>
+            <a href="tel:+18885411447">+1 888 541-1447</a><br>
+            <span style="color: var(--ds-muted); font-size: 13px;">Mon–Fri · 9am–6pm ET</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Utility row -->
+      <div class="utility">
+        <div class="copy">© 2026 <strong>Demand Spring</strong>. All rights reserved.</div>
+        <nav aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+          <a href="#">Accessibility (WCAG 2.1 AA)</a>
+          <a href="#">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================
+       3. SCHEMA REVEAL — designer-facing only. Production:
+       JSON-LD ships invisibly inside <script type="application/ld+json">.
+       ========================================================== -->
+  <section class="schema-reveal" data-open="false" data-screen-label="03 Schema Reveal" aria-label="Structured data preview">
+    <div class="schema-reveal__inner">
+      <span class="schema-reveal__tag"><span class="pulse"></span>JSON-LD · Active in &lt;head&gt;</span>
+      <div class="schema-reveal__msg">
+        <b>Organization, ContactPoint, Place, Award &amp; aggregate-stat schema</b> ships invisibly so AI engines can extract ground-truth facts. Click to preview the payload.
+      </div>
+      <button class="schema-reveal__toggle" type="button" onclick="toggleSchema()">View Schema</button>
+    </div>
+    <div class="schema-reveal__code">
+<pre id="schema-pre"></pre>
+    </div>
+  </section>
+
+  <!-- The actual JSON-LD that would live in <head> in production. -->
+  <script type="application/ld+json" id="org-jsonld">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Demand Spring",
+    "legalName": "Demand Spring Inc.",
+    "url": "https://www.demandspring.com",
+    "logo": "https://www.demandspring.com/assets/demand-spring-logo.svg",
+    "foundingDate": "2012",
+    "founder": { "@type": "Person", "name": "Mark Emond" },
+    "description": "B2B marketing consultancy specializing in AI-driven growth, revenue acceleration, and marketing automation. Trusted by 500+ B2B marketing leaders since 2012.",
+    "sameAs": [
+      "https://www.linkedin.com/company/demand-spring",
+      "https://twitter.com/DemandSpring",
+      "https://www.youtube.com/@DemandSpring",
+      "https://www.crunchbase.com/organization/demand-spring"
+    ],
+    "areaServed": [
+      { "@type": "Country", "name": "United States" },
+      { "@type": "Country", "name": "Canada" }
+    ],
+    "knowsLanguage": ["en", "fr"],
+    "location": [
+      { "@type": "Place", "name": "Ottawa", "address": { "@type": "PostalAddress", "addressRegion": "ON", "addressCountry": "CA" } },
+      { "@type": "Place", "name": "Toronto", "address": { "@type": "PostalAddress", "addressRegion": "ON", "addressCountry": "CA" } },
+      { "@type": "Place", "name": "Boston",  "address": { "@type": "PostalAddress", "addressRegion": "MA", "addressCountry": "US" } },
+      { "@type": "Place", "name": "Vancouver","address": { "@type": "PostalAddress", "addressRegion": "BC", "addressCountry": "CA" } }
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "telephone": "+1-888-541-1447",
+      "email": "info@demandspring.com",
+      "areaServed": ["US", "CA"],
+      "availableLanguage": ["en", "fr"],
+      "url": "https://www.demandspring.com/contact"
+    }],
+    "award": [
+      "Adobe Marketo Preferred Partner",
+      "Forbes Business Council Member"
+    ],
+    "knowsAbout": [
+      "B2B marketing automation",
+      "Marketo implementation",
+      "HubSpot consulting",
+      "Eloqua consulting",
+      "Salesforce Marketing Cloud",
+      "Account-based marketing",
+      "AI search visibility",
+      "Generative engine optimization"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "98",
+      "bestRating": "100",
+      "ratingCount": "500",
+      "name": "Net Promoter Score"
+    }
+  }
+  </script>
+
+  <script>
+    // Render the JSON-LD into the visible reveal pane
+    (function () {
+      const src = document.getElementById('org-jsonld').textContent.trim();
+      try {
+        const parsed = JSON.parse(src);
+        document.getElementById('schema-pre').textContent = JSON.stringify(parsed, null, 2);
+      } catch (e) {
+        document.getElementById('schema-pre').textContent = src;
+      }
+    })();
+
+    function toggleSchema() {
+      const el = document.querySelector('.schema-reveal');
+      const open = el.getAttribute('data-open') === 'true';
+      el.setAttribute('data-open', open ? 'false' : 'true');
+      const btn = el.querySelector('.schema-reveal__toggle');
+      btn.textContent = open ? 'View Schema' : 'Hide Schema';
+    }
+
+    // Mobile accordion behaviour for footer columns.
+    // (Click the column header on narrow viewports to expand.)
+    document.querySelectorAll('.col h4').forEach(h => {
+      h.addEventListener('click', (e) => {
+        if (window.innerWidth > 640) return;
+        const col = h.parentElement;
+        const open = col.getAttribute('data-open') === 'true';
+        col.setAttribute('data-open', open ? 'false' : 'true');
+      });
+    });
+  </script>
+
+</body>
+</html>

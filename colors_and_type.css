@@ -1,0 +1,272 @@
+/* =========================================================
+   Demand Spring — Colors & Type
+   Sourced from Demand Spring Existing Site (Figma) — 04/2026
+   ========================================================= */
+
+/* ---------- Web fonts ---------- */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./fonts/Roboto-Light.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 300;
+  src: url("./fonts/Roboto-LightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/Roboto-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./fonts/Roboto-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./fonts/Roboto-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/Roboto-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Pelago — display/secondary face shipped by client. Not currently
+   used on demandspring.com but provided as a brand-approved option
+   for editorial covers, decks, and event collateral. */
+@font-face {
+  font-family: "Pelago";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/Pelago-Regular.otf") format("opentype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Pelago";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/Pelago-Bold.otf") format("opentype");
+  font-display: swap;
+}
+
+/* ---------- Tokens ---------- */
+:root {
+  /* ---- Core palette (sampled from Figma) ---- */
+  --ds-green:           rgb(101, 188, 75);   /* primary accent — CTAs, dividers, brand bands */
+  --ds-green-deep:      rgb(101, 176, 54);   /* press / strong stroke */
+  --ds-green-soft:      rgb(170, 211, 155);  /* tint, hover, fills behind icons */
+  --ds-green-50:        #eef7e9;             /* very light tint for callout backgrounds */
+
+  --ds-ink:             rgb(38, 38, 38);     /* primary text & headers */
+  --ds-ink-2:           rgb(47, 51, 62);     /* secondary heading on dark blocks */
+  --ds-ink-3:           rgb(68, 68, 68);     /* tertiary/section background gray */
+  --ds-ink-4:           rgb(28, 28, 28);     /* near-black for footer logo etc. */
+
+  --ds-navy:            rgb(10, 45, 80);     /* deep navy — used for utility chips / dark UI */
+
+  --ds-white:           rgb(255, 255, 255);
+  --ds-bg:              rgb(255, 255, 255);
+  --ds-bg-soft:         rgb(244, 244, 244);  /* off-white section background */
+  --ds-rule:            rgb(211, 211, 211);  /* hairline borders */
+  --ds-rule-strong:     rgb(167, 167, 167);
+  --ds-muted:           rgb(117, 117, 117);
+  --ds-muted-2:         rgb(164, 164, 164);
+
+  --ds-danger:          rgb(191, 0, 0);
+
+  /* ---- Semantic foreground / background aliases ---- */
+  --fg-1: var(--ds-ink);            /* body & headlines */
+  --fg-2: rgb(75, 75, 75);          /* secondary copy */
+  --fg-3: var(--ds-muted);          /* meta, captions */
+  --fg-on-accent: var(--ds-white);
+  --fg-on-dark:   var(--ds-white);
+
+  --bg-1: var(--ds-bg);             /* page */
+  --bg-2: var(--ds-bg-soft);        /* section break */
+  --bg-3: var(--ds-ink-3);          /* dark band / footer alt */
+  --bg-accent: var(--ds-green);
+
+  --border-1: var(--ds-rule);
+  --border-accent: var(--ds-green);
+
+  /* ---- Type families ---- */
+  --font-sans: "Roboto", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-display: "Roboto", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-editorial: "Pelago", "Roboto", Georgia, serif;  /* opt-in for decks/covers */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* ---- Type scale (sampled from Figma) ---- */
+  --fs-display:   100px;  /* hero "Pioneering AI-driven marketing…" */
+  --fs-h1:        48px;   /* page H1 */
+  --fs-h2:        36px;   /* section heads "Our transformative AI marketing solutions" */
+  --fs-lead:      30px;   /* hero supporting / lead paragraphs (weight 500) */
+  --fs-h3:        26px;   /* card titles / sub-section heads */
+  --fs-h4:        24px;   /* tertiary heads */
+  --fs-h5:        20px;   /* eyebrow large / list items */
+  --fs-body-lg:   18px;   /* default body — Light 300 */
+  --fs-body:      16px;   /* secondary body / footer */
+  --fs-meta:      15px;   /* meta, captions */
+  --fs-eyebrow:   14px;   /* uppercase tags */
+  --fs-button:    15px;
+
+  --lh-display:   1.0;
+  --lh-tight:     1.1;
+  --lh-snug:      1.3;
+  --lh-body:      1.5;     /* Roboto Light 18/27 */
+  --lh-relaxed:   1.65;
+
+  --tracking-eyebrow: 0.12em;
+  --tracking-button:  0.02em;
+
+  /* ---- Spacing (8-pt grid + Figma-sampled section padding) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+  --space-11: 80px;    /* in-section vertical padding */
+  --space-12: 100px;   /* hero / large block padding */
+  --space-13: 120px;   /* section break padding */
+
+  --gutter: 80px;      /* column gap on desktop */
+  --container-max: 1280px;
+  --page-pad: 170px;   /* outer page padding at 1620w */
+
+  /* ---- Radii ---- */
+  --radius-sm: 5px;     /* inputs, small cards */
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 100px; /* primary CTA */
+  --radius-circle: 999px;
+
+  /* ---- Borders ---- */
+  --hairline: 1px solid var(--border-1);
+  --rule-accent: 1px solid var(--ds-green);
+
+  /* ---- Shadow system (Figma uses one drop shadow heavily) ---- */
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-2: 0 3px 6px rgba(0,0,0,0.16);          /* cards / chat poke (sampled) */
+  --shadow-3: 0 8px 24px rgba(0,0,0,0.10);
+  --shadow-4: 0 16px 48px rgba(0,0,0,0.18);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 360ms;
+}
+
+/* ---------- Element defaults ---------- */
+html, body {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  background: var(--bg-1);
+  font-size: var(--fs-body-lg);
+  font-weight: 300;
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--fg-1);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1);  line-height: var(--lh-tight);  font-weight: 400; }
+h2 { font-size: var(--fs-h2);  line-height: var(--lh-tight);  font-weight: 400; }
+h3 { font-size: var(--fs-h3);  line-height: var(--lh-snug);   font-weight: 500; }
+h4 { font-size: var(--fs-h4);  line-height: var(--lh-snug);   font-weight: 500; }
+h5 { font-size: var(--fs-h5);  line-height: var(--lh-snug);   font-weight: 700; }
+
+p  { font-size: var(--fs-body-lg); line-height: var(--lh-body); margin: 0 0 1em; font-weight: 300; text-wrap: pretty; }
+small, .meta { font-size: var(--fs-meta); color: var(--fg-3); }
+
+a { color: var(--fg-1); text-decoration: none; transition: color var(--dur-fast) var(--ease-out); }
+a:hover { color: var(--ds-green-deep); }
+
+/* ---------- Reusable display class ---------- */
+.ds-display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+}
+
+.ds-lead {
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--fg-1);
+}
+
+.ds-eyebrow {
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--ds-green-deep);
+}
+
+/* ---------- Buttons (canonical) ---------- */
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 40px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-button);
+  letter-spacing: var(--tracking-button);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background var(--dur-base) var(--ease-out),
+              color var(--dur-base) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+}
+.ds-btn--primary { background: var(--ds-ink); color: var(--ds-white); }
+.ds-btn--primary:hover { background: var(--ds-green-deep); }
+.ds-btn--primary:active { transform: translateY(1px); }
+
+.ds-btn--accent { background: var(--ds-green); color: var(--ds-white); }
+.ds-btn--accent:hover { background: var(--ds-green-deep); }
+
+.ds-btn--ghost { background: transparent; color: var(--ds-ink); border-color: var(--ds-ink); }
+.ds-btn--ghost:hover { background: var(--ds-ink); color: var(--ds-white); }
+
+.ds-btn--inverse { background: var(--ds-white); color: var(--ds-ink); }
+.ds-btn--inverse:hover { background: var(--ds-green); color: var(--ds-white); }
